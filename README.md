@@ -7,6 +7,7 @@ This app will let you read and send data via serial port
 ##Installing dependencies
 ```
 $ npm install
+$ bower install
 ```
 
 ##Launching app
