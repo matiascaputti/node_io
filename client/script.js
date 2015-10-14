@@ -13,7 +13,8 @@ socket.on('disconnect', function(){
 socket.on('data', function (data) {
     if (data.length > 1 ) {
         console.log("Data: ", data);
-        document.getElementById('box').innerHTML = "RECEIVED DATA: " + data;
+        //var dataToSeconds = (data * 0.1).toFixed(1);
+        document.getElementById('box').innerHTML = "Received data: " + data;
     };
 });
 
