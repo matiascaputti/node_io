@@ -77,10 +77,19 @@ body {
     margin: 15px;
 }
 
+.spinner {
+    font-size: 25px;
+    margin: 0px 5px 0px 10px;
+}
+
 .red-icon {
     color: #e74c3c;
 }
 
 .green-icon {
     color: #2ecc71;
+}
+
+.blue-icon {
+    color: #2980b9;
 }
