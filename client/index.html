@@ -20,20 +20,20 @@
         </div>
 
         <div class="container">
-            <label>What's your name?</label>
-            <input type="text" ng-model="main.name" placeholder="player's name">
+            <label>Jugador: </label>
+            <input type="text" ng-model="main.name" placeholder="">
             <span ng-if="main.name">
                 <i class="fa fa-cog fa-spin blue-icon spinner"></i>
-                waiting for score...
+                esperando puntaje...
             </span>
         </div>
 
-        <div class="container">
-            <p id="dialogue">Top players</p>
+        <div class="container score">
+            <p id="dialogue">Ranking</p>
             <p id="box" ng-if="main.ranking.length" class="ranking-value" ng-repeat="score in main.ranking | orderBy : '-value'">
-                {{$index+1}}) <b>{{score.name}}</b>: {{score.value}} points
+                {{$index+1}}) <b>{{score.name}}</b>: {{score.value}} puntos
             </p>
-            <p ng-if="!main.ranking.length">no scores saved yet</p>
+            <p ng-if="!main.ranking.length">sin puntajes</p>
         </div>
 
         <div class="footer">

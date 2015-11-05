@@ -5,6 +5,7 @@
     .controller('mainController', function() {
         var main = this;
 
+        main.name = "";
         main.ranking = [
           //{ name: 'Max', value: 4500 },
           //{ name: 'Min', value: 0 },
@@ -32,8 +33,12 @@
                 var newScore = {};
                 newScore.name = main.name;
                 newScore.value = data;
+                console.log(newScore);
                 main.ranking.push(newScore);
                 main.name = '';
+
+                console.log(main.ranking);
+                console.log(main.name);
 
                 //console.log("Data: ", data);
                 // Convert if data is millis()
