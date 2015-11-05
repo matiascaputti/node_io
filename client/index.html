@@ -1,52 +1,41 @@
 <html>
 <head>
-    <title>NODE IO</title>
+    <title>PatchDart</title>
 
-    <script src="public/bower_components/socket.io-client/socket.io.js"></script>
-    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="public/bower_components/socket.io-client/socket.io.js"></script>
+    <script type="text/javascript" src="public/bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="app.js"></script>
 
+    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="public/bower_components/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 </head>
-<body>
-    <div class="header">
-        <img src="logo.png">
-    </div>
+<body ng-app="PatchDart" ng-controller="mainController as main">
+    <div class="site-container">
+        <div class="header">
+            <img src="logo.png">
+            <span ng-if="main.socket"><i class="fa fa-check green-icon"></i></span>
+            <span ng-if="!main.socket"><i class="fa fa-times red-icon"></i></span>
+        </div>
 
-    <div class="container">
-        <p id="dialogue">Test dialogue</p>
-        <p id="box">Test box</p>
-    </div>
-    <div class="container">
-        <input type="text"><button>SERIAL SEND</button>
-    </div>
+        <div class="container">
+            <label>What's your name?</label>
+            <input type="text" ng-model="main.name" placeholder="player's name">
+            <span ng-if="main.name">waiting for score...</span>
+        </div>
 
-    <div class="container center">
-        <button>PIN 1 TEST</button>
-        <button>PIN 2 TEST</button>
-        <button>PIN 3 TEST</button>
-        <button>PIN 4 TEST</button>
-        <button>PIN 5 TEST</button>
-        <button>PIN 6 TEST</button>
-        <br><br>
-        <button>PIN 7 TEST</button>
-        <button>PIN 8 TEST</button>
-        <button>PIN 9 TEST</button>
-        <button>PIN 10 TEST</button>
-        <button>PIN 11 TEST</button>
-        <button>PIN 12 TEST</button>
-        <br><br>
-        <button>PIN 13 TEST</button>
-        <button>PIN 14 TEST</button>
-        <button>PIN 15 TEST</button>
-        <button>PIN 16 TEST</button>
-        <button>PIN 17 TEST</button>
-        <button>PIN 18 TEST</button>
-        <br>
-    </div>
+        <div class="container">
+            <p id="dialogue">Top players</p>
+            <p id="box" ng-if="main.ranking.length" class="ranking-value" ng-repeat="score in main.ranking | orderBy : '-value'">
+                {{$index+1}}) <b>{{score.name}}</b>: {{score.value}} points
+            </p>
+            <p ng-if="!main.ranking.length">no scores saved yet</p>
+        </div>
 
-    <div class="footer">
-        <p>NODE IO</p>
+        <div class="footer">
+            <p><b>UTN FRLP</b> - Aplicaciones en Tiempo Real - <b>PatchDart</b></p>
+        </div>
     </div>
 </body>
 </html>

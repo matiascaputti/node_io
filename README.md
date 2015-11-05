@@ -1,4 +1,4 @@
-# NODE IO
+# PatchDart - NODE IO
 Repository for the Node IO App. The application is build using NodeJS.
 
 ##About
@@ -10,7 +10,12 @@ $ npm install
 $ bower install
 ```
 
-##Launching app
+##Launching server
 ```
-$ node test.js
+$ node server/test.js
+```
+
+##Launching client
+```
+$ python -m SimpleHTTPServer 8000
 ```
